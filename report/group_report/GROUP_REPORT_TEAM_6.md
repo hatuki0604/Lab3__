@@ -1,7 +1,7 @@
 # Group Report: Lab 3 - Production-Grade Agentic System
 
 - **Team Name**: Team C-6
-- **Team Members**: Nguyen Binh Huy, Nguyen Lam Phuong Thao, Cao Thi Ha, Ha Trung Kien
+- **Team Members**: Nguyen Binh Huy, Nguyen Lam Phuong Thao, Cao Thi Thu Ha, Ha Trung Kien
 - **Deployment Date**: 01-06-2026
 
 
