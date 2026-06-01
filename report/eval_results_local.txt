@@ -1,0 +1,68 @@
+=======================================================
+📊 BÁO CÁO THỬ NGHIỆM ĐÁNH GIÁ: CHATBOT VS HYBRID AGENT
+=======================================================
+
+📝 TEST CASE 1: "Chào bạn! Tôi là một người rất yêu thích đọc sách. Bạn có thể giới thiệu bạn có thể giúp gì cho tôi không?"
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 0 ms
+   - Số Tokens: 0
+   - Câu trả lời: Tôi không có thông tin về câu hỏi này trong cơ sở dữ liệu hệ thống.
+
+[2] HYBRID FLOW (ReAct Agent Only (Timeout)):
+   - Độ trễ: 26368 ms
+   - Số Tokens: 2878
+   - Câu trả lời: Không thể hoàn thành câu trả lời trong giới hạn bước cho phép.
+=======================================================
+
+📝 TEST CASE 2: "Tôi muốn tìm thông tin và năm sáng tác của tác phẩm 'Chí Phèo' của tác giả Nam Cao."
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 2861 ms
+   - Số Tokens: 749
+   - Câu trả lời: Tác phẩm: Chí Phèo | Tác giả: Nam Cao | Năm sáng tác: 1941 | Khu vực: Việt Nam
+
+[2] HYBRID FLOW (ReAct Agent Only):
+   - Độ trễ: 9691 ms
+   - Số Tokens: 1382
+   - Câu trả lời: [Tổng hợp câu trả lời] Đồng thời với Work ID, ngày sáng tác của 'Chí Phèo' là...
+=======================================================
+
+📝 TEST CASE 3: "Tôi muốn tìm thông tin tác phẩm 'Tắt đèn' của nhà văn Ngô Tất Tố. Hãy tóm tắt tác phẩm này và gợi ý một vài sách trên OpenLibrary."
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 0 ms
+   - Số Tokens: 0
+   - Câu trả lời: Tôi không có thông tin về câu hỏi này trong cơ sở dữ liệu hệ thống.
+
+[2] HYBRID FLOW (ReAct Agent Only (Timeout)):
+   - Độ trễ: 24576 ms
+   - Số Tokens: 3570
+   - Câu trả lời: Không thể hoàn thành câu trả lời trong giới hạn bước cho phép.
+=======================================================
+
+📝 TEST CASE 4: "Tìm thông tin tác phẩm 'Chiến tranh và hòa bình' (War and Peace) của tác giả Lev Tolstoy. Hãy tóm tắt nó và giới thiệu sách trên OpenLibrary."
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 0 ms
+   - Số Tokens: 0
+   - Câu trả lời: Tôi không có thông tin về câu hỏi này trong cơ sở dữ liệu hệ thống.
+
+[2] HYBRID FLOW (ReAct Agent Only (Timeout)):
+   - Độ trễ: 32357 ms
+   - Số Tokens: 4010
+   - Câu trả lời: Không thể hoàn thành câu trả lời trong giới hạn bước cho phép.
+=======================================================
+
+📝 TEST CASE 5: "Hãy tóm tắt giúp tôi cuốn sách 'Hành trình bay vào không gian của chú Cuội năm 2099' và tìm nó trên OpenLibrary."
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 0 ms
+   - Số Tokens: 0
+   - Câu trả lời: Tôi không có thông tin về câu hỏi này trong cơ sở dữ liệu hệ thống.
+
+[2] HYBRID FLOW (ReAct Agent Only (Timeout)):
+   - Độ trễ: 24675 ms
+   - Số Tokens: 3595
+   - Câu trả lời: Không thể hoàn thành câu trả lời trong giới hạn bước cho phép.
+=======================================================

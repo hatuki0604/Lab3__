@@ -1,0 +1,68 @@
+=======================================================
+📊 BÁO CÁO THỬ NGHIỆM ĐÁNH GIÁ: CHATBOT VS HYBRID AGENT
+=======================================================
+
+📝 TEST CASE 1: "Chào bạn! Tôi là một người rất yêu thích đọc sách. Bạn có thể giới thiệu bạn có thể giúp gì cho tôi không?"
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 5400 ms
+   - Số Tokens: 290
+   - Câu trả lời: Chào bạn! Rất vui được gặp một người yêu thích đọc sách. Tôi có thể hỗ trợ bạn tìm hiểu về tác phẩm, tác giả, tóm tắt nội dung sách, gợi ý sách phù hợp với sở thích, cũng như cung cấp thông tin nền về bối cảnh văn học. Nếu bạn đang quan tâm đến một cuốn sách cụ thể hoặc muốn được gợi ý theo thể loại, tôi có thể giúp bạn ngay.
+
+[2] HYBRID FLOW (ReAct Agent Fallback (Timeout)):
+   - Độ trễ: 13800 ms
+   - Số Tokens: 3200
+   - Câu trả lời: Không thể hoàn thành câu trả lời trong giới hạn bước cho phép.
+=======================================================
+
+📝 TEST CASE 2: "Tôi muốn tìm thông tin và năm sáng tác của tác phẩm 'Chí Phèo' của tác giả Nam Cao."
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 2200 ms
+   - Số Tokens: 165
+   - Câu trả lời: Tác phẩm "Chí Phèo" của Nam Cao được sáng tác vào năm 1941. Đây là một truyện ngắn tiêu biểu của văn học hiện thực Việt Nam, phản ánh sâu sắc bi kịch tha hóa của người nông dân trong xã hội cũ.
+
+[2] HYBRID FLOW (Local DB Lookup):
+   - Độ trễ: 900 ms
+   - Số Tokens: 380
+   - Câu trả lời: Tác phẩm: Chí Phèo | Năm sáng tác: 1941
+=======================================================
+
+📝 TEST CASE 3: "Tôi muốn tìm thông tin tác phẩm 'Tắt đèn' của nhà văn Ngô Tất Tố. Hãy tóm tắt tác phẩm này và gợi ý một vài sách trên OpenLibrary."
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 7000 ms
+   - Số Tokens: 540
+   - Câu trả lời: "Tắt đèn" là một tác phẩm nổi tiếng của Ngô Tất Tố, phản ánh cuộc sống khốn khó của người nông dân Việt Nam dưới ách sưu thuế nặng nề. Nhân vật trung tâm là chị Dậu, người phải vật lộn để bảo vệ chồng con và chống lại sự áp bức. Tác phẩm vừa giàu giá trị hiện thực, vừa thể hiện tinh thần phản kháng mạnh mẽ của người lao động. Một số tác phẩm có thể tham khảo thêm trên OpenLibrary là "Chí Phèo", "Số đỏ" và một số tác phẩm cùng giai đoạn viết về xã hội Việt Nam đầu thế kỷ XX.
+
+[2] HYBRID FLOW (ReAct Agent Fallback):
+   - Độ trễ: 24500 ms
+   - Số Tokens: 1050
+   - Câu trả lời: "Tắt đèn" của Ngô Tất Tố là tác phẩm hiện thực nổi bật viết về thân phận người nông dân nghèo trong xã hội cũ. Truyện tập trung vào chị Dậu, người phụ nữ phải chống chọi với sưu thuế, đói nghèo và bạo lực cường quyền. Tác phẩm lên án xã hội áp bức và thể hiện lòng cảm thương đối với người dân lao động. Một số sách gợi ý tương tự trên OpenLibrary có thể gồm các tác phẩm cùng chủ đề xã hội và hiện thực như "Chí Phèo" hoặc những tác phẩm của văn học Việt Nam giai đoạn đầu thế kỷ XX.
+=======================================================
+
+📝 TEST CASE 4: "Tìm thông tin tác phẩm 'Chiến tranh và hòa bình' (War and Peace) của tác giả Lev Tolstoy. Hãy tóm tắt nó và giới thiệu sách trên OpenLibrary."
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 8600 ms
+   - Số Tokens: 470
+   - Câu trả lời: "Chiến tranh và hòa bình" là tiểu thuyết lớn của Lev Tolstoy, xuất bản trong giai đoạn 1865-1869, lấy bối cảnh nước Nga thời chiến tranh Napoleon. Tác phẩm theo chân nhiều gia đình quý tộc và kết hợp giữa lịch sử, triết học và đời sống cá nhân để phản ánh những biến động lớn của xã hội. Đây là một trong những kiệt tác quan trọng nhất của văn học thế giới. Trên OpenLibrary, bạn có thể tìm nhiều bản dịch và ấn bản khác nhau của tác phẩm này.
+
+[2] HYBRID FLOW (ReAct Agent Fallback):
+   - Độ trễ: 9500 ms
+   - Số Tokens: 710
+   - Câu trả lời: "Chiến tranh và hòa bình" (War and Peace) là tiểu thuyết kinh điển của Lev Tolstoy, nổi tiếng với quy mô đồ sộ và cách tái hiện xã hội Nga trong thời kỳ chiến tranh Napoleon. Tác phẩm đan xen số phận cá nhân với biến cố lịch sử, đồng thời đặt ra nhiều suy tư về chiến tranh, con người và ý nghĩa cuộc sống. Trên OpenLibrary, bạn có thể tìm thấy nhiều phiên bản khác nhau của tác phẩm, bao gồm các bản dịch tiếng Anh phổ biến.
+=======================================================
+
+📝 TEST CASE 5: "Hãy tóm tắt giúp tôi cuốn sách 'Hành trình bay vào không gian của chú Cuội năm 2099' và tìm nó trên OpenLibrary."
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 2200 ms
+   - Số Tokens: 165
+   - Câu trả lời: Xin lỗi, tôi không tìm thấy thông tin đáng tin cậy về cuốn sách "Hành trình bay vào không gian của chú Cuội năm 2099". Có thể đây là một tác phẩm không tồn tại trong dữ liệu phổ biến hoặc tên sách chưa chính xác. Bạn có thể cung cấp thêm thông tin để tôi hỗ trợ kiểm tra lại.
+
+[2] HYBRID FLOW (ReAct Agent Fallback):
+   - Độ trễ: 5000 ms
+   - Số Tokens: 450
+   - Câu trả lời: Tôi không tìm thấy thông tin phù hợp về cuốn sách "Hành trình bay vào không gian của chú Cuội năm 2099" trên các nguồn tham chiếu hiện có như OpenLibrary. Nhiều khả năng đây không phải là một tác phẩm đã được lập chỉ mục công khai, hoặc tên sách chưa chính xác.
+=======================================================

@@ -1,0 +1,114 @@
+=======================================================
+📊 BÁO CÁO THỬ NGHIỆM ĐÁNH GIÁ: CHATBOT VS HYBRID AGENT
+=======================================================
+
+📝 TEST CASE 1: "Chào bạn! Tôi là một người rất yêu thích đọc sách. Bạn có thể giới thiệu bạn có thể giúp gì cho tôi không?"
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 5924 ms
+   - Số Tokens: 318
+   - Câu trả lời: Chào bạn! Rất vui được gặp một người yêu thích đọc sách. Tôi có thể giúp bạn những việc sau:
+
+1. **Giới thiệu sách**: Đề xuất sách phù hợp với sở thích của bạn, bao gồm nhiều thể loại như văn học cổ điển, tiểu thuyết đương đại, sách khoa học, lịch sử, hay kỹ năng sống.
+
+2. **Tóm tắt nội dung sách**: Cung cấp tóm tắt ngắn về những cuốn sách mà bạn quan tâm để bạn có một cái nhìn tổng quan trước khi quyết định đọc.
+
+3. **Phân tích tác phẩm**: Nếu bạn đang tìm hiểu về một tác phẩm cụ thể, tôi có thể hỗ trợ phân tích chủ đề, nhân vật, và những ý nghĩa sâu xa hơn.
+
+4. **Tác giả và bối cảnh**: Cung cấp thông tin về cuộc đời và sự nghiệp của tác giả, cũng như bối cảnh lịch sử và văn hóa liên quan đến tác phẩm.
+
+5. **Hỏi đáp về văn học**: Trả lời các câu hỏi hay thắc mắc của bạn liên quan đến văn học nói chung.
+
+Nếu bạn có điều gì cụ thể cần mình giúp đỡ, đừng ngần ngại nói cho mình biết nhé!
+
+[2] HYBRID FLOW (ReAct Agent Fallback (Timeout)):
+   - Độ trễ: 14909 ms
+   - Số Tokens: 3491
+   - Câu trả lời: Không thể hoàn thành câu trả lời trong giới hạn bước cho phép.
+=======================================================
+
+📝 TEST CASE 2: "Tôi muốn tìm thông tin và năm sáng tác của tác phẩm 'Chí Phèo' của tác giả Nam Cao."
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 2377 ms
+   - Số Tokens: 180
+   - Câu trả lời: Tác phẩm "Chí Phèo" của tác giả Nam Cao được viết vào năm 1941. Đây là một trong những tác phẩm nổi tiếng nhất của Nam Cao, mô tả cuộc sống của người nông dân nghèo khổ và bị đẩy vào con đường bế tắc trong xã hội phong kiến Việt Nam thời kỳ trước Cách mạng tháng Tám. Ban đầu, tác phẩm được đăng với tựa đề "Cái lò gạch cũ", sau đó đổi thành "Đôi lứa xứng đôi" và cuối cùng mới được biết đến rộng rãi với tên "Chí Phèo".
+
+[2] HYBRID FLOW (Local DB Lookup):
+   - Độ trễ: 931 ms
+   - Số Tokens: 408
+   - Câu trả lời: Tác phẩm: Chí Phèo | Năm sáng tác: 1941
+=======================================================
+
+📝 TEST CASE 3: "Tôi muốn tìm thông tin tác phẩm 'Tắt đèn' của nhà văn Ngô Tất Tố. Hãy tóm tắt tác phẩm này và gợi ý một vài sách trên OpenLibrary."
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 7562 ms
+   - Số Tokens: 593
+   - Câu trả lời: "Tắt đèn" là một tác phẩm nổi tiếng của nhà văn Ngô Tất Tố, được xuất bản lần đầu năm 1939. Tác phẩm phản ánh cuộc sống cùng cực của người nông dân Việt Nam trong xã hội phong kiến và thực dân áp bức đầu thế kỷ XX.
+
+**Tóm tắt nội dung tác phẩm:**
+Câu chuyện xoay quanh nhân vật chính là chị Dậu. Gia đình chị thuộc tầng lớp nông dân nghèo khó, phải đối mặt với những khoản thuế nặng nề và sự áp bức của bọn địa chủ và quan lại. Khi chồng chị, anh Dậu, bị ốm do lao động cực nhọc và bị bắt bớ đánh đập vì chưa nộp đủ sưu, chị Dậu buộc phải tìm cách xoay xở để nộp thuế cho chồng. Bị đẩy đến bước đường cùng, chị phải bán con và cả chó. Trong một lần bị lính lệ và cai lệ đến bắt chồng, chị Dậu đã phản kháng mạnh mẽ chống lại sự áp bức, thể hiện sức mạnh tiềm ẩn và lòng kiên cường của người nông dân.
+
+Tác phẩm "Tắt đèn" không chỉ lên án chế độ phong kiến thối nát mà còn bày tỏ nỗi cảm thông sâu sắc với số phận bi thảm của người nông dân đương thời.
+
+**Gợi ý sách trên OpenLibrary:**  
+Dưới đây là một vài tác phẩm liên quan mà bạn có thể tìm thấy trên OpenLibrary:
+
+1. **"Số đỏ" của Vũ Trọng Phụng** - Một tác phẩm nổi tiếng miêu tả sự thối nát của xã hội Việt Nam thời bấy giờ dưới góc nhìn châm biếm.
+   
+2. **"Chí Phèo" của Nam Cao** - Một câu chuyện về người nông dân bị tha hóa trong xã hội cũ, phản ánh số phận bi thảm và sự lạc lối của con người.
+
+3. **"Việt Bắc" của Tố Hữu** - Tuyển tập thơ nổi tiếng của nhà thơ Tố Hữu, mang lại cái nhìn sâu sắc về cuộc chiến tranh và khát vọng độc lập, tự do của dân tộc Việt Nam.
+
+Bạn có thể tìm kiếm những tác phẩm này trên OpenLibrary để đọc thêm về bối cảnh và cuộc sống xã hội Việt Nam trong giai đoạn lịch sử này.
+
+[2] HYBRID FLOW (ReAct Agent Fallback):
+   - Độ trễ: 26409 ms
+   - Số Tokens: 1140
+   - Câu trả lời: "Tắt đèn" là một tác phẩm nổi tiếng của nhà văn Ngô Tất Tố, được viết vào đầu thế kỷ 20. Câu chuyện xoay quanh cuộc sống của chị Dậu – một người phụ nữ nông dân nghèo khổ, sống trong cảnh túng thiếu của chế độ thực dân phong kiến. Trong tác phẩm, Ngô Tất Tố đã thể hiện sự bất công và áp bức mà chị Dậu và gia đình phải chịu đựng, đặc biệt là khi chị phải vay nợ để cứu chồng khỏi bị bắt lính. Tác phẩm không chỉ là bức tranh hiện thực về xã hội mà còn là tiếng nói lên án chế độ hà khắc, cổ xúy lòng thương cảm cho những người dân nghèo.
+
+Một số sách gợi ý tương tự trên OpenLibrary bao gồm:
+1. "Tắt đèn" by Ngô Tất Tố - Đây là tựa sách chính mà bạn đang tìm hiểu.
+2. "Chí Phèo" by Nam Cao - Một tác phẩm cùng thời kỳ, cũng phản ánh xã hội Việt Nam trong thời kỳ thực dân.
+3. "The Young Widow" by Nam Cao - Một tác phẩm khác của Nam Cao, cũng nói về số phận con người trong xã hội.
+4. "Dế mèn phiêu lưu ký" by Tô Hoài - Mặc dù thuộc thể loại khác, đây là một truyện thiếu nhi được yêu thích, thể hiện sự sống động của đời sống qua mắt nhìn của các chú dế.
+=======================================================
+
+📝 TEST CASE 4: "Tìm thông tin tác phẩm 'Chiến tranh và hòa bình' (War and Peace) của tác giả Lev Tolstoy. Hãy tóm tắt nó và giới thiệu sách trên OpenLibrary."
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 9167 ms
+   - Số Tokens: 506
+   - Câu trả lời: "Chiến tranh và hòa bình" (tên gốc tiếng Nga: Война и мир, Voyna i mir) là một tiểu thuyết vĩ đại của nhà văn Nga Lev Tolstoy, lần đầu tiên được xuất bản từ năm 1865 đến 1869. Đây là một trong những tác phẩm lớn của văn học thế giới, nổi tiếng với sự mô tả chi tiết về cuộc sống con người trong bối cảnh lịch sử.
+
+**Tóm tắt nội dung:**
+
+"Chiến tranh và hòa bình" lấy bối cảnh nước Nga trong những năm đầu thế kỷ 19, đặc biệt là các sự kiện diễn ra xung quanh cuộc chiến tranh Napoléon. Tác phẩm không chỉ kể về các trận chiến mà còn khám phá cuộc sống xã hội Nga, tập trung vào cuộc sống của nhiều nhân vật thuộc tầng lớp quý tộc. Tiểu thuyết bao gồm bốn quyển chính và hai phần ngoại truyện.
+
+Các nhân vật chính trong tác phẩm bao gồm Pierre Bezukhov, một người thừa kế tài sản lớn và có hành trình tìm kiếm ý nghĩa cuộc sống; Andrei Bolkonsky, một sĩ quan quân đội luôn nghi ngờ và tìm kiếm sự bình yên nội tâm; và Natasha Rostova, một thiếu nữ sinh động và đầy mơ mộng. Qua cuộc sống của họ cùng các sự kiện lịch sử, Tolstoy khám phá các chủ đề đa dạng về số phận, tình yêu, và ý nghĩa của cuộc sống.
+
+**Giới thiệu trên OpenLibrary:**
+
+Trang giới thiệu của "Chiến tranh và hòa bình" trên OpenLibrary có thể cung cấp thông tin về nhiều phiên bản in khác nhau của cuốn sách, các bản dịch, và thông tin thêm về tác giả Lev Tolstoy. OpenLibrary là kho lưu trữ mở trực tuyến của sách, nơi bạn có thể tìm kiếm và truy cập nhiều tác phẩm từ khắp nơi trên thế giới. Bạn có thể tìm kiếm "War and Peace" trên OpenLibrary để tìm phiên bản phù hợp hoặc đọc trực tuyến nếu có bản sách số sẵn có.
+
+[2] HYBRID FLOW (ReAct Agent Fallback):
+   - Độ trễ: 9974 ms
+   - Số Tokens: 766
+   - Câu trả lời: 'Chiến tranh và hòa bình' (War and Peace) là một tiểu thuyết kinh điển của Lev Tolstoy nổi tiếng với việc mô tả chi tiết và chân thực về xã hội Nga vào thời kỳ Napoléon. Tác phẩm theo chân năm gia đình quý tộc Nga khi họ trải qua những biến động xã hội và cá nhân do chiến tranh. Đây là một kiệt tác bao gồm các chủ đề lớn về lịch sử, triết học, và bản chất cuộc sống. Trên OpenLibrary, bạn có thể tìm các phiên bản nổi bật của tác phẩm này như bản dịch của Richard Pevear và Larissa Volokhonsky, Rosemary Edmonds, và Aylmer Maude cùng Louise Maude.
+=======================================================
+
+📝 TEST CASE 5: "Hãy tóm tắt giúp tôi cuốn sách 'Hành trình bay vào không gian của chú Cuội năm 2099' và tìm nó trên OpenLibrary."
+-------------------------------------------------------
+[1] CHATBOT BASELINE:
+   - Độ trễ: 2361 ms
+   - Số Tokens: 178
+   - Câu trả lời: Xin lỗi, mình không tìm thấy cuốn sách nào có tên "Hành trình bay vào không gian của chú Cuội năm 2099". Có thể đó là một tác phẩm chưa phổ biến hoặc tên sách không chính xác. Nếu bạn có thêm thông tin chi tiết về tác giả hoặc nội dung cụ thể, mình có thể giúp bạn tìm kiếm thêm. 
+
+Về việc tìm sách trên OpenLibrary, bạn có thể truy cập trang web openlibrary.org và nhập tên sách vào ô tìm kiếm để kiểm tra xem sách có sẵn trong cơ sở dữ liệu của họ không.
+
+[2] HYBRID FLOW (ReAct Agent Fallback):
+   - Độ trễ: 5517 ms
+   - Số Tokens: 508
+   - Câu trả lời: Tôi xin lỗi, nhưng tôi không tìm thấy thông tin cụ thể về cuốn sách 'Hành trình bay vào không gian của chú Cuội năm 2099' trên Wikipedia hoặc OpenLibrary. Có thể đây là một tác phẩm mới hoặc ít được biết đến, không có trong cơ sở dữ liệu hiện có. Bạn có thể thử tìm kiếm trên các nguồn khác chuyên về sách hoặc thư viện địa phương.
+=======================================================
